@@ -13,7 +13,14 @@ public class Emulator {
 private static int interval_in_ms = 5000;
 	
 	public static void main(String[] args) throws Exception {
-		String url = System.getProperty("api.url");
+		int base_weight;
+		try {
+			base_weight = Integer.parseInt(System.getProperty("base.value"));
+		} catch (NumberFormatException e) {
+			throw new IllegalStateException("Invalid value for VM argument base.value");
+		}
+				
+		final String url = System.getProperty("api.url");
 		if(url == null) {
 			throw new IllegalStateException("Missing VM argument api.url");
 		}
@@ -22,7 +29,7 @@ private static int interval_in_ms = 5000;
 		int anomaly_2 = -90;
 
 		while(true) {
-			int start_weight = 160;
+			int start_weight = base_weight;
 
 			// increasing the weight up by 30 till 190
 			for(int i = 0; i < 30; i++) {

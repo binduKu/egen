@@ -19,7 +19,7 @@ This creates a jar file in target directory 'sensor-emulator-0.0.1-SNAPSHOT.jar'
 
 ## How to run it?
 ```
-java -jar -Dapi.url=http://localhost:8080 sensor-emulator-0.0.1-SNAPSHOT.jar
+java -jar -Dbase.value=150 -Dapi.url=http://localhost:8080 sensor-emulator-0.0.1-SNAPSHOT.jar
 ```
 
-where the url is the RESTful endpoint that listens to any new information from this emulator. 
+where 'base.value' is the value from which the metrics should start from and 'url' is the RESTful endpoint that this emulator will try to send the metric to. 
