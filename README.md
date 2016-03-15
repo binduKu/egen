@@ -8,6 +8,8 @@ Simple java program that acts like a sensor and sends information (in JSON forma
 }
 ``` 
 
+where timeStamp indicates when this data was sent and the value indicates a metric.
+
 ## How to build it?
 ```
 mvn clean package
