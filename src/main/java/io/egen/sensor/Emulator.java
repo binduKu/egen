@@ -1,7 +1,5 @@
 package io.egen.sensor;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +10,7 @@ import groovyx.net.http.HTTPBuilder;
 
 public class Emulator {
 
-private static int interval_in_ms = 500;
+private static int interval_in_ms = 5000;
 	
 	public static void main(String[] args) throws Exception {
 		String url = System.getProperty("api.url");
@@ -51,7 +49,7 @@ private static int interval_in_ms = 500;
 		HTTPBuilder http = new HTTPBuilder(url);
 		
 		Map<String, Object> map = new HashMap<>();
-		String json = "{\"timeStamp\": \"" + getTimeStamp() + "\", \"value\": \"" + value + "\"}";
+		String json = "{\"timeStamp\": \"" + String.valueOf(System.currentTimeMillis()) + "\", \"value\": \"" + value + "\"}";
 		map.put("body", json);
 		System.out.println("Posting data " + json + " to api at " + url);
 		
@@ -65,9 +63,5 @@ private static int interval_in_ms = 500;
 			System.out.println("API [" + url + "] not reachable. Error - " + e.getMessage());
 		}
 		Thread.sleep(interval_in_ms);
-	}
-	
-	private static String getTimeStamp() {
-		return new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 	}
 }
