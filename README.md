@@ -3,7 +3,7 @@ Simple java program that acts like a sensor and sends information (in JSON forma
 
 ```json
 {
-  "timeStamp": "20160315113828", 
+  "timeStamp": "1458062848734", 
   "value": "153"
 }
 ``` 
